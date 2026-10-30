@@ -1,6 +1,6 @@
 """A Claude agent that reads an echoboard task and drafts a pre-registration plan.
 
-    python agent.py [taskId] [--draft]
+    python claude_agent.py [taskId] [--draft]
 
 Claude connects to echoboard's MCP server through the Anthropic API's MCP connector. Without --draft
 it only writes the plan in the terminal; with --draft it also saves it on the board as a draft, which

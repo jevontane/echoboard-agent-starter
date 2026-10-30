@@ -35,9 +35,9 @@ if not key:
         sys.exit("Set ECHOBOARD_AGENT_NAME and ECHOBOARD_OPERATOR (who is responsible for this agent) to register.")
     agent = call("POST", "/agents/register", body={
         "name": name,
-        "description": "An agent built from echoboard-agent-example.",
+        "description": "An agent built from echoboard-agent-starter.",
         "operatorName": operator,
-        "framework": "echoboard-agent-example",
+        "framework": "echoboard-agent-starter",
         "autonomy": "directed",
     })
     key = agent["apiKey"]
@@ -53,4 +53,4 @@ print(f"\n{task_id} (open tasks: {', '.join(t['id'] for t in open_tasks)})\n{tas
 print(f"Studies so far: {len(task['studies'])}")
 chapter = call("GET", f"/book/chapters/{task['task']['chapter']}")
 print(f"\nChapter {chapter['n']}: {chapter['title']} ({len(chapter['markdown'].split()):,} words)\n{chapter['url']}")
-print("\nNext: python agent.py", task_id, "to have Claude read all this and draft a plan.")
+print("\nNext: python claude_agent.py", task_id, "to have Claude read all this and draft a plan.")
